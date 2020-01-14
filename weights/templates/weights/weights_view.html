@@ -1,0 +1,27 @@
+{% extends 'weights/base.html' %} {% block content %}
+
+<h1>Weights View Page</h1>
+
+
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Weight</th>
+      <th scope="col">Change</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for weight in weights_descending %}
+    <tr>
+      <!-- <td>{{ weight.date}}</td> -->
+      <td>{{ weight.date|date:"M d, Y" }}</td>
+      <!-- {{ birthday|date:"M d, Y" }} -->
+      <td>{{ weight.weight }}</td>
+      <td>CHANGE PLACEHOLDER</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

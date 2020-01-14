@@ -1,0 +1,13 @@
+{% extends 'weights/base.html' %}
+
+
+{% block content %}
+<h3>Weight Entry</h3>
+
+    <form action="" method=POST>{% csrf_token %}
+        {{ weight_entry_form.as_p }}
+        <input type="submit">
+    </form>
+    
+
+{% endblock %}
