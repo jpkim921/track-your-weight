@@ -16,16 +16,21 @@ def weights_view(request):
     return render(request, 'weights/weights_view.html', context)
 
 
-# def weight_entry(request):
-#     return render(request, 'weights/weight_entry.html', {})
-
 def weight_entry(request):
   if request.method == "POST":
 
     weight_entry_form = WeightForm(request.POST)
 
     if weight_entry_form.is_valid():
-      weight_entry = weight_entry_form.save()
+      weight_entry = weight_entry_form.save(commit=False)
+
+      if len(Weight.objects.all()) != 0:
+        previous_weight = Weight.objects.all()[::-1][0]
+        weight_entry.change = weight_entry.weight - previous_weight.weight
+        weight_entry.save()
+      
+      weight_entry.save()
+
       return redirect('/')
 
   else:
