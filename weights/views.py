@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
 from .models import Weight
@@ -41,3 +42,15 @@ def weight_entry(request):
   }
 
   return render(request, 'weights/weight_entry.html', context)
+
+
+def chart_view(request):
+  return render(request, 'chart.html', {})
+
+# make a view to grab the data
+def get_data(request, *args, **kwargs):
+  data = {
+    "sales": 100,
+    "customers": 10
+  }
+  return JsonResponse(data)
