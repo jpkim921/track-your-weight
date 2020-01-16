@@ -14,11 +14,9 @@
   <tbody>
     {% for weight in weights_descending %}
     <tr>
-      <!-- <td>{{ weight.date}}</td> -->
       <td>{{ weight.date|date:"M d, Y" }}</td>
-      <!-- {{ birthday|date:"M d, Y" }} -->
       <td>{{ weight.weight }}</td>
-      <td>CHANGE PLACEHOLDER</td>
+      <td>{{ weight.change }}</td>
     </tr>
     {% endfor %}
   </tbody>
