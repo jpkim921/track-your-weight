@@ -1,3 +1,6 @@
+from rest_framework.views import APIView
+from rest_framework.response import Response
+
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
@@ -54,3 +57,23 @@ def get_data(request, *args, **kwargs):
     "customers": 10
   }
   return JsonResponse(data)
+
+dates = []
+weights = []
+for weight in Weight.objects.all():
+  dates.append(weight.date)
+  weights.append(weight.weight)
+
+class ChartData(APIView):
+
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request, format=None):
+        data = {
+            "sales": 100,
+            "customers": 10,
+            'weights': weights,
+            'dates': dates
+        }
+        return Response(data)
