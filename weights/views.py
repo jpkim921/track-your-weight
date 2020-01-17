@@ -70,10 +70,13 @@ class ChartData(APIView):
     permission_classes = []
 
     def get(self, request, format=None):
+      # labels = ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"]
+      # default_items = [] 
+      
         data = {
-            "sales": 100,
-            "customers": 10,
-            'weights': weights,
-            'dates': dates
+          # 'default': default_items,
+          'labels':dates,
+          'weights': weights,
+          # 'dates': dates,
         }
         return Response(data)
