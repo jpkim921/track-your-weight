@@ -12,10 +12,29 @@ def weights_view(request):
     weights_ascending = Weight.objects.all()
     weights_descending = weights_ascending[::-1]
 
+    # form
+    weight_entry_form = WeightForm()
+
+    if request.method == "POST":
+
+      weight_entry_form = WeightForm(request.POST)
+
+    if weight_entry_form.is_valid():
+      weight_entry = weight_entry_form.save(commit=False)
+
+      if len(Weight.objects.all()) != 0:
+        previous_weight = Weight.objects.all()[::-1][0]
+        weight_entry.change = weight_entry.weight - previous_weight.weight
+        weight_entry.save()
+
+      weight_entry.save()
+      return redirect('/')
 
     context = {
         'weights_ascending': weights_ascending,
-        'weights_descending': weights_descending
+        'weights_descending': weights_descending,
+        'weight_entry_form': weight_entry_form
+
     }
     return render(request, 'weights/weights_view.html', context)
 
