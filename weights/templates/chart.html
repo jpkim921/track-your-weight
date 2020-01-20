@@ -1,4 +1,14 @@
 {% extends 'weights/base.html' %}
+{% load static %} 
+
+
+{% block css-style %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'weights/css/chart.css' %}"
+/>
+{% endblock %}
 
 <script>
   {% block jquery %}
@@ -21,7 +31,7 @@
   })
 
   function setChart(){
-    var ctx = document.getElementById("myChart").getContext("2d");
+    var ctx = document.getElementById("weight-chart").getContext("2d");
     var myChart = new Chart(ctx, {
       type: "line",
       data: {
@@ -70,7 +80,9 @@
 <div class="row">
   <div class="col-sm-12">
     <h1>Hello World</h1>
-    <canvas id="myChart" width="400" height="400"></canvas>
+    <div class="canvas-container">
+      <canvas id="weight-chart" width="200" height="75"></canvas>
+    </div>    
   </div>
 </div>
 
