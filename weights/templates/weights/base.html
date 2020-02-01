@@ -35,12 +35,9 @@
   </head>
   <body>
     <div class="container">
-      {% block form-field %} {% endblock %} {% block content %} {% endblock %}
+      {% block form-field %} {% endblock %} 
+      {% block script-link %} {% endblock %}
+      {% block content %} {% endblock %}
     </div>
-
-    <script>
-      {% block jquery %}
-      {% endblock%}
-    </script>
   </body>
 </html>
