@@ -28,6 +28,7 @@ def weights_view(request):
         weight_entry.save()
 
       weight_entry.save()
+      print("weight_entry", weight_entry.weight)
       return redirect('/')
 
     context = {
@@ -70,32 +71,37 @@ def chart_view(request):
   return render(request, 'chart.html', {})
 
 # make a view to grab the data
-def get_data(request, *args, **kwargs):
-  data = {
-    "sales": 100,
-    "customers": 10
-  }
-  return JsonResponse(data)
 
-dates = []
-weights = []
-for weight in Weight.objects.all():
-  dates.append(weight.date)
-  weights.append(weight.weight)
+def chartXY():
+  dates = []
+  weights = []
+
+  for weight in Weight.objects.all():
+    dates.append(weight.date)
+    weights.append(weight.weight)
+  
+  # last 5 entries
+  dates = dates[len(dates)-5:len(dates)]
+  weights = weights[len(weights)-5:len(weights)]
+  
+  dataXY = [dates, weights]
+
+
+  return dataXY
+
+
 
 class ChartData(APIView):
 
     authentication_classes = []
     permission_classes = []
 
+    dataForChart = chartXY()
+
     def get(self, request, format=None):
-      # labels = ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"]
-      # default_items = [] 
       
         data = {
-          # 'default': default_items,
-          'labels':dates,
-          'weights': weights,
-          # 'dates': dates,
+          'labels': self.dataForChart[0][0:6],
+          'weights': self.dataForChart[1][0:6],
         }
         return Response(data)

@@ -1,24 +1,43 @@
+window.onload = event => {
+  // console.log("chart loading")
+  $.ajax({
+    method: "GET",
+    url: "/api/chart/data",
+    success: function(data) {
+      labels = data.labels;
+      weights = data.weights;
+      console.log("labels-x", labels)
+      console.log("weights-y", weights);
+      setChart();
+    },
+    error: function(error_data) {
+      console.log("error");
+      console.log(error_data);
+    }
+  });
+};
+
 console.log("connected Now")
 
-let endpoint = "/api/chart/data";
+// let endpoint = "/api/chart/data";
 
-let defaultData = [];
-let labels = [];
-$.ajax({
-  method: "GET",
-  url: endpoint,
-  success: function(data) {
-    labels = data.labels;
-    weights = data.weights;
-    console.log("labels-x", labels)
-    console.log("weights-y", weights);
-    setChart();
-  },
-  error: function(error_data) {
-    console.log("error");
-    console.log(error_data);
-  }
-});
+// let defaultData = [];
+// let labels = [];
+// $.ajax({
+//   method: "GET",
+//   url: "/api/chart/data"
+//   success: function(data) {
+//     labels = data.labels;
+//     weights = data.weights;
+//     console.log("labels-x", labels)
+//     console.log("weights-y", weights);
+//     setChart();
+//   },
+//   error: function(error_data) {
+//     console.log("error");
+//     console.log(error_data);
+//   }
+// });
 
 function setChart() {
   var ctx = document.getElementById("weight-chart").getContext("2d");
