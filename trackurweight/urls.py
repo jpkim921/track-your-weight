@@ -16,9 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from weights.views import weights_view, weight_entry
+from weights.views import weights_view, weight_entry, chart_view, ChartData
 
 urlpatterns = [
+    # path('api/data/', get_data, name='api-data'),
+    path('api/chart/data/', ChartData.as_view()),
+    path('chart/', chart_view, name='chart-view'),
     path('new_entry/', weight_entry),
     path('', weights_view),
     path('admin/', admin.site.urls),
