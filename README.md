@@ -22,4 +22,4 @@ When I redo this project, I think I will use React for the client side as oppose
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at [https://github.com/jpkim921/troof](https://github.com/jpkim921/troof). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.
+Bug reports and pull requests are welcome on GitHub at [https://github.com/jpkim921/track-your-weight](https://github.com/jpkim921/track-your-weight). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.
