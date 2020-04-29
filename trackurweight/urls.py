@@ -14,15 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
-from weights.views import weights_view, weight_entry, chart_view, ChartData
 
 urlpatterns = [
-    # path('api/data/', get_data, name='api-data'),
-    path('api/chart/data/', ChartData.as_view()),
-    path('chart/', chart_view, name='chart-view'),
-    path('new_entry/', weight_entry),
-    path('', weights_view),
-    path('admin/', admin.site.urls),
+    path('', include('weightpoints.urls')),
+    # path('admin/', admin.site.urls),
 ]
