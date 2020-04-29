@@ -40,7 +40,8 @@ INSTALLED_APPS = [
 
     # additional apps
     'rest_framework',
-    'weightpoints'
+    'weightpoints',
+    'frontend',
 ]
 
 MIDDLEWARE = [
