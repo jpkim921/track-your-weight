@@ -1,0 +1,24 @@
+{% extends 'frontend/base.html' %} {% block content %}
+
+<h1>INDEX TEST</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Weight</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for weightpoint in weightpoints %}
+    <tr>
+      <td>{{weightpoint.id}}</td>
+      <td>{{weightpoint.weight}}</td>
+      <td>{{weightpoint.date}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock content %}
