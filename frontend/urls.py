@@ -4,5 +4,6 @@ from . import views
 app_name = 'trackyourweight'
 
 urlpatterns = [
-    path('', views.IndexView.as_view(), name='index'),
+    path('', views.IndexView, name='index'),
+    path('<int:pk>/', views.DetailView, name='detail'),
 ]

@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from frontend.views import HomeView, WeightPointForm
+# from frontend.views import HomeView, WeightPointForm
 
 
 urlpatterns = [
     path('', include('weightpoints.urls')),
-    path('chart/', HomeView.as_view(), name='home'),
-    path('new-entry/', WeightPointForm)
+    # path('chart/', HomeView.as_view(), name='home'),
+    path('weightpoints/', include('frontend.urls'))
 ]
