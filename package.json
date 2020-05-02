@@ -4,7 +4,7 @@
   "description": "A web app to track a user's weight using python and django.",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --mode development ./react_frontend/src/index.js --output ./react_frontend/static/react_frontend/main.js",
+    "dev": "webpack --mode development --watch ./react_frontend/src/index.js --output ./react_frontend/static/react_frontend/main.js",
     "build": "webpack --mode production ./react_frontend/src/index.js --output ./react_frontend/static/react_frontend/main.js"
   },
   "repository": {

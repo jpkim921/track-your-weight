@@ -1,9 +1,19 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import ReactDOM from "react-dom";
+
+import Header from "./layout/Header";
+import Container from "./layout/Container";
 
 class App extends Component {
   render() {
-    return <h1>React App</h1>;
+    return (
+      <Fragment>
+        <Header />
+        <div className="container">
+          <Container />
+        </div>
+      </Fragment>
+    );
   }
 }
 
