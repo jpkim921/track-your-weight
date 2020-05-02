@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     # additional apps
     'rest_framework',
     'weightpoints',
-    'frontend',
+    # 'frontend',
+    'react_frontend'
 ]
 
 MIDDLEWARE = [
