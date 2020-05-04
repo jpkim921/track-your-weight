@@ -15,7 +15,6 @@ export class WeightPoints extends Component {
   }
 
   render() {
-    console.log(this.props.weightpoints);
     return (
       <Fragment>
         <h2>Weight Points</h2>
@@ -57,10 +56,6 @@ export class WeightPoints extends Component {
 const mapStateToProps = (state) => ({
   weightpoints: state.weightpoints.weightpoints,
 });
-
-// const mapDispatchToProps = {
-//   getWeightPoints,
-// };
 
 export default connect(mapStateToProps, { getWeightPoints, deleteWeightPoint })(
   WeightPoints

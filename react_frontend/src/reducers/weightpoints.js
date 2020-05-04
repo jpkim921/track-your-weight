@@ -1,4 +1,8 @@
-import { GET_WEIGHTPOINTS, DELETE_WEIGHTPOINT } from "../actions/types.js";
+import {
+  GET_WEIGHTPOINTS,
+  DELETE_WEIGHTPOINT,
+  ADD_WEIGHTPOINT,
+} from "../actions/types.js";
 
 const initialState = {
   weightpoints: [],
@@ -17,6 +21,11 @@ export default function (state = initialState, action) {
         weightpoints: state.weightpoints.filter(
           (weightpoint) => weightpoint.id !== action.payload
         ),
+      };
+    case ADD_WEIGHTPOINT:
+      return {
+        ...state,
+        weightpoints: [...state.weightpoints, action.payload],
       };
     default:
       return state;
