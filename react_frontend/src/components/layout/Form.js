@@ -17,8 +17,11 @@ export class Form extends Component {
     e.preventDefault();
     const { weight } = this.state;
     const weightpoint = { weight };
-    // console.log(weightpoint);
     this.props.addWeightPoint(weightpoint);
+
+    this.setState({
+      weight: "",
+    });
   };
 
   render() {
