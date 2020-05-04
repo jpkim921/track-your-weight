@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { Bar, Line } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 
 class WeightChart extends Component {
   static defaultProps = {
@@ -45,7 +45,7 @@ class WeightChart extends Component {
             maintainAspectRatio: false,
           }}
           width={500}
-          height={400}
+          height={320}
           // options={{ maintainAspectRatio: false }}
         />
       </div>

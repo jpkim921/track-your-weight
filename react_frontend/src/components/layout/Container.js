@@ -6,8 +6,14 @@ import WeightChart from "./WeightChart";
 export default function Container() {
   return (
     <Fragment>
-      <WeightChart />
-      <Form />
+      <div className="row">
+        <div className="col-md-8">
+          <WeightChart />
+        </div>
+        <div className="col-md align-self-center">
+          <Form />
+        </div>
+      </div>
       <WeightPoints />
     </Fragment>
   );
