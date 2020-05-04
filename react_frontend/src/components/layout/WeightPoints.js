@@ -6,6 +6,8 @@ import { getWeightPoints, deleteWeightPoint } from "../../actions/weightpoints";
 export class WeightPoints extends Component {
   static propTypes = {
     weightpoints: PropTypes.array.isRequired,
+    getWeightPoints: PropTypes.func.isRequired,
+    deleteWeightPoint: PropTypes.func.isRequired,
   };
 
   componentDidMount() {
