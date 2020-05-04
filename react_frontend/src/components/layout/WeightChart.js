@@ -4,22 +4,11 @@ import PropTypes from "prop-types";
 import { Bar, Line } from "react-chartjs-2";
 
 class WeightChart extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   console.log(props);
-  //   this.state = {
-  //     chartData: {
-  //       labels: [],
-  //       datasets: [
-  //         {
-  //           label: "Progress",
-  //           data: [],
-  //           backgroundColor: ["rgba(255,99,132,0.6)"],
-  //         },
-  //       ],
-  //     },
-  //   };
-  // }
+  static defaultProps = {
+    displayTitle: true,
+    displayLegend: false,
+    legendPosition: "bottom",
+  };
 
   render() {
     const data = {
@@ -32,20 +21,32 @@ class WeightChart extends Component {
               (weightpoint) => weightpoint.weight
             ),
             backgroundColor: ["rgba(255,99,132,0.6)"],
+            borderColor: ["rgba(255, 99, 132, 1)"],
+            borderWidth: 2,
           },
         ],
       },
     };
-
-    console.log(data);
     return (
       <div className="chart">
         <Line
           // data={this.state.chartData}
           data={data.chartData}
+          options={{
+            title: {
+              display: this.props.displayTitle,
+              text: "Weight Progress",
+              fontSize: 25,
+            },
+            legend: {
+              display: this.props.displayLegend,
+              position: this.props.legendPosition,
+            },
+            maintainAspectRatio: false,
+          }}
           width={500}
           height={400}
-          options={{ maintainAspectRatio: false }}
+          // options={{ maintainAspectRatio: false }}
         />
       </div>
     );
