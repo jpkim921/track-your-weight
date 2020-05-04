@@ -19,6 +19,8 @@ from django.urls import path, include
 
 
 urlpatterns = [
+
+    path('', include('react_frontend.urls')),
     path('', include('weightpoints.urls')),
     # path('chart/', HomeView.as_view(), name='home'),
     path('weightpoints/', include('frontend.urls'))
