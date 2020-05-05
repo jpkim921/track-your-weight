@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Line } from "react-chartjs-2";
 
@@ -30,7 +29,6 @@ class WeightChart extends Component {
     return (
       <div className="chart">
         <Line
-          // data={this.state.chartData}
           data={data.chartData}
           options={{
             title: {
@@ -53,8 +51,4 @@ class WeightChart extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  weightpoints: state.weightpoints.weightpoints,
-});
-
-export default connect(mapStateToProps)(WeightChart);
+export default WeightChart;

@@ -1,18 +1,12 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { getWeightPoints, deleteWeightPoint } from "../../actions/weightpoints";
+import { deleteWeightPoint } from "../../actions/weightpoints";
 
 export class WeightPoints extends Component {
   static propTypes = {
-    weightpoints: PropTypes.array.isRequired,
-    getWeightPoints: PropTypes.func.isRequired,
     deleteWeightPoint: PropTypes.func.isRequired,
   };
-
-  componentDidMount() {
-    this.props.getWeightPoints();
-  }
 
   render() {
     return (
@@ -55,10 +49,4 @@ export class WeightPoints extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  weightpoints: state.weightpoints.weightpoints,
-});
-
-export default connect(mapStateToProps, { getWeightPoints, deleteWeightPoint })(
-  WeightPoints
-);
+export default connect(null, { deleteWeightPoint })(WeightPoints);
