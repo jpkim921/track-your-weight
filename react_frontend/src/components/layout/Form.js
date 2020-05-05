@@ -38,6 +38,8 @@ export class Form extends Component {
               name="weight"
               onChange={this.onChange}
               value={weight}
+              step="0.01"
+              min="0"
             ></input>
           </div>
           <div className="form-group">
