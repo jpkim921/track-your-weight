@@ -40,9 +40,8 @@ INSTALLED_APPS = [
 
     # additional apps
     'rest_framework',
-    'weightpoints',
-    # 'frontend',
-    'react_frontend'
+    'weightpoints',  # weightpoints app is the API Server
+    'react_frontend'  # front end incorporates ReactJS
 ]
 
 MIDDLEWARE = [
@@ -111,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/New_York'
 
 USE_I18N = True
 

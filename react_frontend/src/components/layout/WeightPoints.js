@@ -25,7 +25,6 @@ export class WeightPoints extends Component {
             {this.props.weightpoints
               .map((weightpoint) => (
                 <tr key={weightpoint.id}>
-                  <td>{weightpoint.id}</td>
                   <td>{weightpoint.weight}</td>
                   <td>{weightpoint.date}</td>
                   <td>
