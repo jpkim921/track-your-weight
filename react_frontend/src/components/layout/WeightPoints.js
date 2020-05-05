@@ -15,7 +15,6 @@ export class WeightPoints extends Component {
         <table className="table table-striped">
           <thead>
             <tr>
-              <th>ID</th>
               <th>Weight</th>
               <th>Date</th>
               <th></th>

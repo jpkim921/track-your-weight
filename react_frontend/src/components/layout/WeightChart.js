@@ -22,6 +22,8 @@ class WeightChart extends Component {
             backgroundColor: ["rgba(255,99,132,0.6)"],
             borderColor: ["rgba(255, 99, 132, 1)"],
             borderWidth: 2,
+            fill: false,
+            lineTension: 0,
           },
         ],
       },
@@ -41,6 +43,15 @@ class WeightChart extends Component {
               position: this.props.legendPosition,
             },
             maintainAspectRatio: false,
+            scales: {
+              yAxes: [
+                {
+                  ticks: {
+                    stepSize: 0.2,
+                  },
+                },
+              ],
+            },
           }}
           width={500}
           height={320}
