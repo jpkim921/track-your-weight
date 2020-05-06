@@ -10,49 +10,64 @@ class WeightChart extends Component {
   };
 
   render() {
+    const labels = this.props.weightpoints.map(
+      (weightpoint) => weightpoint.date
+    );
+
+    const datasetsData = this.props.weightpoints.map(
+      (weightpoint) => weightpoint.weight
+    );
+
+    // adjust y-axis min and max value dynamically based on weight points
+    const min = Math.floor(datasetsData[0]) - 2;
+    const max =
+      Math.ceil(parseFloat(datasetsData[datasetsData.length - 1])) + 2;
+
     const data = {
       chartData: {
-        labels: this.props.weightpoints.map((weightpoint) => weightpoint.date),
+        labels: labels,
         datasets: [
           {
             label: "Progress",
-            data: this.props.weightpoints.map(
-              (weightpoint) => weightpoint.weight
-            ),
+            data: datasetsData,
             backgroundColor: ["rgba(255,99,132,0.6)"],
             borderColor: ["rgba(255, 99, 132, 1)"],
             borderWidth: 2,
             fill: false,
-            lineTension: 0,
+            lineTension: 0.15,
           },
         ],
       },
     };
+
+    const options = {
+      title: {
+        display: this.props.displayTitle,
+        text: "Weight Progress",
+        fontSize: 25,
+      },
+      legend: {
+        display: this.props.displayLegend,
+        position: this.props.legendPosition,
+      },
+      maintainAspectRatio: false,
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              min: min,
+              max: max,
+            },
+          },
+        ],
+      },
+    };
+
     return (
       <div className="chart">
         <Line
           data={data.chartData}
-          options={{
-            title: {
-              display: this.props.displayTitle,
-              text: "Weight Progress",
-              fontSize: 25,
-            },
-            legend: {
-              display: this.props.displayLegend,
-              position: this.props.legendPosition,
-            },
-            maintainAspectRatio: false,
-            scales: {
-              yAxes: [
-                {
-                  ticks: {
-                    stepSize: 0.2,
-                  },
-                },
-              ],
-            },
-          }}
+          options={options}
           width={500}
           height={320}
           // options={{ maintainAspectRatio: false }}
