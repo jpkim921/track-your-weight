@@ -1,20 +1,16 @@
 # track-your-weight
 
-A web app to track a user's weight using python and django.
+A single page web app that uses Django/Django REST Framework and React along with Chart.js. It's a simple app where a user can enter his/her weight and the chart and table will update automatically with the data from the API server.
 
-The user will enter their weight and it will automatically save and update the database. Along with updating the database, the weight entered will also be added to the table on the landing page as well as the chart which show's a graph of their weight trend.
-
-This is meant to be a project for me to learn how to use Django REST APIs and ChartJS.
-Currently the app works and the table updates with new entries but the chart isn't updating at the same time.
-
-When I redo this project, I think I will use React for the client side as opposed to django running both front and back-ends.
+I started on this project as a means to learn Python and the Django framework. It was also great learning the Chart.js library which helps with visualizing different kinds of charts and graphs.
 
 ## Getting Started
 
-- Make sure you have Python and PIP setup.
+- Make sure you have Python/PIP and NPM setup.
 - Either download or fork the repo.
 - CD into the directory and migrate using python manage.py migrate.
-- Start server with command: python manage.py runserver and enter weight.
+- Run and build main.js for React using command: npm run dev.
+- Start API server with command: python manage.py runserver.
 
 ## Contributing
 
