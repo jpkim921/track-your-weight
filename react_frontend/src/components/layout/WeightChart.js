@@ -9,6 +9,15 @@ class WeightChart extends Component {
     legendPosition: "bottom",
   };
 
+  minMaxPoints = () => {
+    const lst = this.props.weightpoints.map((weightpoint) =>
+      parseFloat(weightpoint.weight)
+    );
+    lst.sort();
+    return [lst[0] - 2, lst[lst.length - 1] + 2];
+    // console.log("inside", lst);
+  };
+
   render() {
     const labels = this.props.weightpoints.map(
       (weightpoint) => weightpoint.date
@@ -19,9 +28,7 @@ class WeightChart extends Component {
     );
 
     // adjust y-axis min and max value dynamically based on weight points
-    const min = Math.floor(datasetsData[0]) - 2;
-    const max =
-      Math.ceil(parseFloat(datasetsData[datasetsData.length - 1])) + 2;
+    const minMax = this.minMaxPoints();
 
     const data = {
       chartData: {
@@ -55,8 +62,10 @@ class WeightChart extends Component {
         yAxes: [
           {
             ticks: {
-              min: min,
-              max: max,
+              suggestedMin: minMax[0],
+              suggestedMax: minMax[1],
+              // min: minMax[0],
+              // max: minMax[1],
             },
           },
         ],
